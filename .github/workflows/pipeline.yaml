@@ -25,9 +25,9 @@ jobs:
         run: |
           aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 244530008913.dkr.ecr.eu-west-1.amazonaws.com
           rev=$(git rev-parse --short HEAD)
-          docker build . -t sidi001
-          docker tag sidi001 244530008913.dkr.ecr.eu-west-1.amazonaws.com/umjxdd-sidi001-repo:$rev
-          docker tag sidi001 244530008913.dkr.ecr.eu-west-1.amazonaws.com/umjxdd-sidi001-repo:latest
+          docker build . -t sidi001-pushed-locally
+          docker tag sidi001-pushed-locally 244530008913.dkr.ecr.eu-west-1.amazonaws.com/umjxdd-sidi001-repo:$rev
+          docker tag sidi001-pushed-locally 244530008913.dkr.ecr.eu-west-1.amazonaws.com/umjxdd-sidi001-repo:latest
           
           docker push 244530008913.dkr.ecr.eu-west-1.amazonaws.com/umjxdd-sidi001-repo:$rev
           docker push 244530008913.dkr.ecr.eu-west-1.amazonaws.com/umjxdd-sidi001-repo:latest
